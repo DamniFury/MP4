@@ -1,0 +1,182 @@
+:root{
+    --poppy-pompadour: hsla(266, 62%, 44%, 1);
+    --dark-dreams: hsla(260, 50%, 28%, 1);
+    --bright-lavender: hsla(266, 55%, 75%, 1);
+    --ghost-white: hsla(252, 56%, 98%, 1);
+    --isabelline: hsla(38, 22%, 93%, 1);
+    --silver: rgb(110, 105, 105);
+    --eerie-black: hsla(0, 0%, 15%, 1);
+    --main-font: 'Tienne', sans-serif;
+    --sub-font: 'Geist', sans-serif;
+}
+
+body{
+    background-color: var(--isabelline);
+    margin: 0;
+    display: grid;
+    grid-template-rows: 10% 80% 10%;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/*header stye*/
+header{
+    display: flex;
+    align-items: center;
+    background-color: var(--bright-lavender);
+    border-bottom: 2px solid var(--dark-dreams);
+}
+
+header > h1{
+    font-family: var(--main-font);
+    font-size: 25px;
+}
+
+
+.logo{
+    width: 4em;
+    height: 4em;
+    margin-left: 5px;
+}
+
+/*footer style*/
+footer{
+    display: flex;
+    align-items: center;
+}
+
+footer > h1{
+    margin: 0;
+    margin-left: 20px;
+    font-size: 25px;
+    color: var(--eerie-black);
+    font-family: var(--main-font);
+
+}
+
+/*actual content*/
+.page-content{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel-1, .panel-2{
+    width: 30vw;
+}
+
+.panel-1{
+    margin-left: auto;
+}
+
+.panel-1 > img{
+    margin-left: auto;
+    width: 20rem;
+    height: 30rem;
+}
+
+.panel-2{
+    margin-right: auto;
+}
+
+.book-title{
+    font-family: var(--main-font);
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.book-author{
+    font-family: var(--main-font);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.synopsis{
+    font-family: var(--sub-font);
+    font-size: 1rem;
+}
+
+input[type="submit"]{
+    width: 9rem;
+    height: 3rem;
+    border-radius: 5px;
+    border-color: var(--bright-lavender);
+    background-color: var(--bright-lavender);
+    font-family: var(--sub-font);
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Popup Styles */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup:target {
+    display: flex;
+}
+
+.popup-content {
+    background-color: var(--dark-dreams);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--bright-lavender);
+}
+
+.popup-content h2 {
+    margin-bottom: 1rem;
+    font-family: var(--main-font);
+}
+
+.popup-content p {
+    margin-bottom: 1rem;
+    font-family: var(--sub-font);
+}
+
+.close-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--bright-lavender);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: var(--main-font);
+}
+
+.close-btn:hover {
+    background-color: var(--dark-dreams);
+}
+
+.go-home {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    font-family: var(--sub-font);
+    font-size: 1.2rem;
+    color: var(--eerie-black);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.go-home i {
+    margin-right: 8px;
+}
+
+.go-home:hover {
+    color: var(--bright-lavender);
+}
