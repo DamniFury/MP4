@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -26,15 +27,14 @@ public class FileIO {
         }
     }
     
-    public ArrayList<String> fileReader(String filepath) throws IOException{
-        ArrayList<String> read;
+    public HashMap<String, String> fileReader(String filepath) throws IOException{
+        HashMap<String, String> read;
         try (BufferedReader in = new BufferedReader(new FileReader(filepath))) {
-            read = new ArrayList<>();
+            read = new HashMap<>();
             String line;
             while((line = in.readLine()) != null){
                 String[] account = line.split("\\s");
-                read.add(account[0]);
-                read.add(account[1]);
+                read.put(account[0], account[1]);
             }
         }
         return read;

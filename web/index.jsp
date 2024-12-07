@@ -13,9 +13,9 @@
         <link rel="stylesheet" href="styles.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <title>Dashboard</title>
+        <title>Landing Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>LMS</h1>
     </body>
 </html>

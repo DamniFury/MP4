@@ -5,8 +5,13 @@
         <group>
             <file>file:/C:/Users/puaas/OneDrive/Documents/NetBeansProjects/MP4/src/java/Servlets/SignUpServlet.java</file>
             <file>file:/C:/Users/puaas/OneDrive/Documents/NetBeansProjects/MP4/src/java/Classes/FileIO.java</file>
+            <file>file:/C:/Users/puaas/OneDrive/Documents/NetBeansProjects/MP4/web/Librarian/dashboard.jsp</file>
+            <file>file:/C:/Users/puaas/OneDrive/Documents/NetBeansProjects/MP4/web/User/book.jsp</file>
+            <file>file:/C:/Users/puaas/OneDrive/Documents/NetBeansProjects/MP4/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/puaas/OneDrive/Documents/NetBeansProjects/MP4/src/java/Servlets/LogInServlet.java</file>
             <file>file:/C:/Users/puaas/OneDrive/Documents/NetBeansProjects/MP4/web/Entry/login.jsp</file>
+            <file>file:/C:/Users/puaas/OneDrive/Documents/NetBeansProjects/MP4/src/java/Servlets/BookPreview.java</file>
+            <file>file:/C:/Users/puaas/OneDrive/Documents/NetBeansProjects/MP4/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -30,10 +30,8 @@ public class SignUpServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        
-        System.out.println("a");
+        String username = request.getParameter("username").trim();
+        String password = request.getParameter("password").trim();
         FileIO io = new FileIO();
         ArrayList<String> a = new ArrayList<>();
         a.add(username);

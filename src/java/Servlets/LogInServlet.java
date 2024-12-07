@@ -6,8 +6,7 @@ package Servlets;
 
 import Classes.FileIO;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,30 +29,28 @@ public class LogInServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
-        String accName = request.getParameter("username");
-        String accPass = request.getParameter("password");
+        String accName = request.getParameter("username").trim();
+        String accPass = request.getParameter("password").trim();
+        
         FileIO io = new FileIO();
-        ArrayList<String> users = io.fileReader("C:\\Users\\puaas\\OneDrive\\Documents\\NetBeansProjects\\MP4\\data\\users.txt");
-       
-        for(int i = 0; i < users.size(); i += 2){
-            String username = users.get(i);
-            String password = users.get(i+1);
-            if(accName.equals(username) && accPass.equals(password)){
-                request.getRequestDispatcher("User/home.jsp").forward(request, response); //relative path
+        HashMap<String, String> credentials = io.fileReader("C:\\Users\\puaas\\OneDrive\\Documents\\NetBeansProjects\\MP4\\data\\users.txt");
+        credentials.put(getServletConfig().getInitParameter("name"), getServletConfig().getInitParameter("password"));
+        
+        if(credentials.containsKey(accName) && credentials.get(accName).equals(accPass)){
+            if(accName.equals(getServletConfig().getInitParameter("name"))){
+                request.getRequestDispatcher("Librarian/dashboard.jsp").forward(request, response);
             }
-            else if(accName.equals(username) && !accPass.equals(password)){
-                request.setAttribute("err", "Incorrect Password");
-                request.getRequestDispatcher("/Error/error_login.jsp").forward(request, response); //absolute path
-            }
-            else if(!accName.equals(username) && accPass.equals(password)){
-                request.setAttribute("err", "Incorrect Username");
-                request.getRequestDispatcher("/Error/error_login.jsp").forward(request, response); //absolute path
-            }
-            else{
-                request.setAttribute("err", "Incorrect Username and Password");
-                request.getRequestDispatcher("/Error/error_login.jsp").forward(request, response); //absolute path
-            }
+            request.getRequestDispatcher("User/home.jsp").forward(request, response);
+        }
+        if(!credentials.containsKey(accName)){
+            request.setAttribute("err", "Incorrect Username");
+            request.getRequestDispatcher("/Error/error_login.jsp").forward(request, response);
+        }
+        if(!credentials.get(accName).equals(accPass)){
+            request.setAttribute("err", "Incorrect Password");
+            request.getRequestDispatcher("/Error/error_login.jsp").forward(request, response);
         }
     }
 
