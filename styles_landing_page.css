@@ -62,24 +62,56 @@ footer > h1{
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    height: 75vh;
+    height: 80vh;
+    gap: 1rem;
+    padding-top: 0;
 }
 
-h1{
+
+nav > ul{
+    display: flex;
+    gap: 2rem;
+    width: 90vw;    
+    justify-content: flex-end;
+    list-style: none;
+    margin-top: 0;
+    margin-left: auto;
+}
+
+nav{
+    margin: 0;
+    width: 90vw;
+}
+
+nav > ul > li > a{
+    text-decoration: none;
+    color: var(--ghost-white);
+    font-size: 1rem;
+    font-family: var(--sub-font);
+}
+
+nav > ul > li > a:hover{
+    color: var(--bright-lavender);
+}
+
+.main-content > h1{
     font-family: var(--main-font);
     font-size: 3rem;
-    margin: 5px;
+    color: var(--ghost-white);
+    margin: 0;
 }
 
 h2{
     font-family: var(--sub-font);
     font-size: 2rem;
     margin: 5px;
+    color: var(--ghost-white);
 }
 
 h3{
     font-family: var(--sub-font);
     font-size: 1rem;
+    color: var(--ghost-white);
 }
 
 img{
