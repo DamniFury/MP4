@@ -16,6 +16,18 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <title>Dashboard</title>
         <style>
+            :root{
+                --poppy-pompadour: hsla(266, 62%, 44%, 1);
+                --dark-dreams: hsla(260, 50%, 28%, 1);
+                --bright-lavender: hsla(266, 55%, 75%, 1);
+                --ghost-white: hsla(252, 56%, 98%, 1);
+                --isabelline: hsla(38, 22%, 93%, 1);
+                --silver: rgb(110, 105, 105);
+                --eerie-black: hsla(0, 0%, 15%, 1);
+                --main-font: 'Tienne', sans-serif;
+                --sub-font: 'Geist', sans-serif;
+            }
+            
             *, :before, ::after{
                 box-sizing: border-box;
                 margin: 0;
@@ -24,8 +36,47 @@
             }
 
             body{
+                background-color: var(--isabelline);
+                margin: 0;
+                display: grid;
+                grid-template-rows: 10% 80% 10%;
+                height: 100vh;
+                width: 100vw;
+                overflow: hidden;
                 font-family: "Geist", Arial, sans-serif;
-                background-color: hsl(38, 22%, 93%);
+            }
+            
+            /*header style*/
+            header{
+                display: flex;
+                align-items: center;
+                background-color: var(--bright-lavender);
+                border-bottom: 2px solid var(--dark-dreams);
+            }
+
+            header > h1{
+                font-family: var(--main-font);
+                font-size: 25px;
+                margin: 0;
+            }
+            .logo{
+                width: 4em;
+                height: 4em;
+                margin-left: 5px;
+            }
+
+            /*footer style*/
+            footer{
+                display: flex;
+                align-items: center;
+            }
+
+            footer > h1{
+                margin: 0;
+                margin-left: 8rem;
+                font-size: 1rem;
+                color: var(--eerie-black);
+                font-family: var(--main-font);
             }
 
             .nav{
@@ -193,75 +244,86 @@
         </style>
     </head>
     <body>
-    <nav class="nav" id="navbar">
-        <ul>
-            <li><i class="bi bi-person-circle"></i></li>
-            <li><a href="#"><i class="bi bi-speedometer2"></i><p>Dashboard</p></a></li>
-            <li><a href="${pageContext.request.contextPath}/Librarian/users.jsp"><i class="bi bi-people-fill"></i><p>Users</p></a></li>
-            <li><a href="#"><i class="bi bi-box-seam-fill"></i><p>Storage</p></a></li>
-            <li><a href="#"><i class="bi bi-gear-fill"></i><p>Settings</p></a></li>
-        </ul>
-        <ul>
-            <li><a href="${pageContext.request.contextPath}/InvalidateSession"><i class="bi bi-box-arrow-left"></i><p>Log out</p></a></li>
-        </ul>
-    </nav>
-    <div class="dashboard" id="dashboard">
-        <div class="header">
-            <h1>Dashboard</h1>
-        </div>
-        <div class="divider"></div>
-        <div class="reminders">
-            <h2>Reminders</h2>
-            <ul class="notif">
-                <li class="reminder_row"><i class="bi bi-bell-fill"></i>Library Christmas Party at December 20, 2024 from 1:00PM - 5:00PM.</li>
-                <li class="reminder_row"><i class="bi bi-bell-fill"></i>Library will be CLOSED from 12/24/2024 - 1/3/2024. I hope enjoy your christmas 😀.</li>
-                <li class="reminder_row"><i class="bi bi-bell-fill"></i>Verify returned books received last month before the Christmas break.</li>
-            </ul>
-        </div>
-        <div class="divider"></div>
-        <div class="history">
-            <h2>Records</h2>
-            <table>
-                <tr>
-                    <th class="history_cell col1">Book Title</th>
-                    <th class="history_cell col2">Author</th>
-                    <th class="history_cell col3">Name</th>
-                    <th class="history_cell col4">Borrow Period</th>
-                    <th class="history_cell col5">Return Date</th>
-                    <th class="history_cell col6">Status</th>
-                </tr>
-                <%
-                FileIO io = new FileIO();
-                String relativePath = "../../data/records.txt";
-                String absolutePath = application.getRealPath(relativePath);
-                ArrayList<String> users = io.recordsReader(absolutePath);
+        <header>
+                <img class="logo" src="${pageContext.request.contextPath}/images/library-logo.png" alt="library-logo">
+                <h1>ICS2608/2CSA/Balagtas, Pua</h1>
+        </header>
                 
-                for(int i = 0; i < users.size(); i++){ 
-                    String[] record = users.get(i).split(",");
-                    if(i % 2 == 0){
-                %><tr>
-                    <td class="history_cell col1 lighter"><%=record[1]%></td>
-                    <td class="history_cell col2 lighter"><%=record[2]%></td>
-                    <td class="history_cell col3 lighter"><%=record[3]%></td>
-                    <td class="history_cell col4 lighter"><%=record[4]%></td>
-                    <td class="history_cell col5 lighter"><%=record[5]%></td>
-                    <td class="history_cell col6 lighter"><%=record[6]%></td>
-                </tr><%  }
-                    else{ %>
-                    <tr>
-                    <td class="history_cell col1"><%=record[1]%></td>
-                    <td class="history_cell col2"><%=record[2]%></td>
-                    <td class="history_cell col3"><%=record[3]%></td>
-                    <td class="history_cell col4"><%=record[4]%></td>
-                    <td class="history_cell col5"><%=record[5]%></td>
-                    <td class="history_cell col6"><%=record[6]%></td>
-                    </tr>
-                <%
-                    }
-                }
-                %>
-            </table>
+        <div class="page-content">
+            <nav class="nav" id="navbar">
+                <ul>
+                    <li><i class="bi bi-person-circle"></i></li>
+                    <li><a href="#"><i class="bi bi-speedometer2"></i><p>Dashboard</p></a></li>
+                    <li><a href="${pageContext.request.contextPath}/Librarian/users.jsp"><i class="bi bi-people-fill"></i><p>Users</p></a></li>
+                    <li><a href="#"><i class="bi bi-box-seam-fill"></i><p>Storage</p></a></li>
+                    <li><a href="#"><i class="bi bi-gear-fill"></i><p>Settings</p></a></li>
+                </ul>
+                <ul>
+                    <li><a href="${pageContext.request.contextPath}/InvalidateSession"><i class="bi bi-box-arrow-left"></i><p>Log out</p></a></li>
+                </ul>
+            </nav>
+            <div class="dashboard" id="dashboard">
+                <div class="header">
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="divider"></div>
+                <div class="reminders">
+                    <h2>Reminders</h2>
+                    <ul class="notif">
+                        <li class="reminder_row"><i class="bi bi-bell-fill"></i>Library Christmas Party at December 20, 2024 from 1:00PM - 5:00PM.</li>
+                        <li class="reminder_row"><i class="bi bi-bell-fill"></i>Library will be CLOSED from 12/24/2024 - 1/3/2024. I hope enjoy your christmas 😀.</li>
+                        <li class="reminder_row"><i class="bi bi-bell-fill"></i>Verify returned books received last month before the Christmas break.</li>
+                    </ul>
+                </div>
+                <div class="divider"></div>
+                <div class="history">
+                    <h2>Records</h2>
+                    <table>
+                        <tr>
+                            <th class="history_cell col1">Book Title</th>
+                            <th class="history_cell col2">Author</th>
+                            <th class="history_cell col3">Name</th>
+                            <th class="history_cell col4">Borrow Period</th>
+                            <th class="history_cell col5">Return Date</th>
+                            <th class="history_cell col6">Status</th>
+                        </tr>
+                        <%
+                        FileIO io = new FileIO();
+                        String relativePath = "../../data/records.txt";
+                        String absolutePath = application.getRealPath(relativePath);
+                        ArrayList<String> users = io.recordsReader(absolutePath);
+
+                        for(int i = 0; i < users.size(); i++){ 
+                            String[] record = users.get(i).split(",");
+                            if(i % 2 == 0){
+                        %><tr>
+                            <td class="history_cell col1 lighter"><%=record[1]%></td>
+                            <td class="history_cell col2 lighter"><%=record[2]%></td>
+                            <td class="history_cell col3 lighter"><%=record[3]%></td>
+                            <td class="history_cell col4 lighter"><%=record[4]%></td>
+                            <td class="history_cell col5 lighter"><%=record[5]%></td>
+                            <td class="history_cell col6 lighter"><%=record[6]%></td>
+                        </tr><%  }
+                            else{ %>
+                            <tr>
+                            <td class="history_cell col1"><%=record[1]%></td>
+                            <td class="history_cell col2"><%=record[2]%></td>
+                            <td class="history_cell col3"><%=record[3]%></td>
+                            <td class="history_cell col4"><%=record[4]%></td>
+                            <td class="history_cell col5"><%=record[5]%></td>
+                            <td class="history_cell col6"><%=record[6]%></td>
+                            </tr>
+                        <%
+                            }
+                        }
+                        %>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
+                              
+        <footer>
+             <h1><%= application.getAttribute("Date").toString() %> | MP#4</h1>
+        </footer>
 </body>
 </html>

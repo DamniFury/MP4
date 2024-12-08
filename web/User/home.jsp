@@ -124,7 +124,7 @@
                 list-style: none;
             }
 
-            .lib-tab, .spotify-tab{
+            .lib-tab, .logout-tab{
                 display: flex;
                 align-items: center;
                 height: 2rem;
@@ -140,8 +140,8 @@
             .option{
                 margin-left: 1rem;
             }
-
-            a.link{
+            
+            a.link, .logout{
                 text-decoration: none;
                 color: var(--eerie-black);
                 padding: 10px;
@@ -151,7 +151,7 @@
                 font-size: 1rem;
                 font-family: var(--main-font);
             }
-
+            
             a.link:hover{
                 background-color: var(--bright-lavender);
                 font-weight: 700;
@@ -357,9 +357,13 @@
                     </li>
                 </a>
                 <a class="sub link" href="">
-                    <li class="spotify-tab">
+                    <li class="logout-tab">
                         <i class="bi bi-box-arrow-left"></i>
-                        <input type="submit" value="Logout"/>
+                        <input class="logout" type="submit" value="Logout" style="
+                               margin: 1rem 0 1rem 1rem;
+                               padding: 0;
+                               color: var(--eerie-black);"
+                               />
                     </li>
                 </a>
             </ul>
