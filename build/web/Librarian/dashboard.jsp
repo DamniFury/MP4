@@ -82,7 +82,7 @@
             .nav{
                 display: flex;
                 flex-direction: column;
-                height: 100vh;
+                height: 90vh;
                 width: 100px;
                 justify-content: space-between;
                 background-color: hsl(260, 50%, 28%);
@@ -241,6 +241,12 @@
             .lighter{
                 background-color: hsl(0, 2%, 78%);
             }
+            
+            .records{
+                max-height: 20rem;
+                overflow-y: auto;
+            }
+            
         </style>
     </head>
     <body>
@@ -278,6 +284,7 @@
                 <div class="divider"></div>
                 <div class="history">
                     <h2>Records</h2>
+                    <div class="records">
                     <table>
                         <tr>
                             <th class="history_cell col1">Book Title</th>
@@ -287,6 +294,7 @@
                             <th class="history_cell col5">Return Date</th>
                             <th class="history_cell col6">Status</th>
                         </tr>
+                        
                         <%
                         FileIO io = new FileIO();
                         String relativePath = "../../data/records.txt";
@@ -318,6 +326,7 @@
                         }
                         %>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

@@ -188,7 +188,7 @@
             .banner{
                 width: 90%;
                 height: 30%;
-                background-image: url(${pageContext.request.contextPath}/images/pattern\2.png);
+                background-image: url(${pageContext.request.contextPath}/images/pattern.png);
                 background-size: cover;
                 margin: auto;
                 border-radius: 25px;

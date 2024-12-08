@@ -239,7 +239,6 @@
                     <h2>Usernames</h2>
                     <h2>Action</h2>
                 </div>
-                <div class="users">
                 <ul class="notif">
                     <%
                     FileIO io = new FileIO();
@@ -254,7 +253,6 @@
                     </li>
                     <% } %>
                 </ul>
-                </div>
             </div>
         </div>
     </div>
