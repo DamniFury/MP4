@@ -56,7 +56,7 @@
             <h1>Nothing Here!</h1>
             <h2>404 - PAGE NOT FOUND</h2>
             <p>The page you are looking for could not be found and might have been removed or is currently under maintenance.</p>
-            <form action="../index.jsp" method="POST">
+            <form action="../InvalidateSession" method="POST">
                 <input class="button" type="submit" value="Go Back" />
             </form>
         </div>

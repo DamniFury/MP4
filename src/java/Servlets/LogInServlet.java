@@ -43,7 +43,7 @@ public class LogInServlet extends HttpServlet {
         session.setAttribute("username", accName);
         
         FileIO io = new FileIO();
-        HashMap<String, String> credentials = io.fileReader(absolutePath);
+        HashMap<String, String> credentials = io.usersReader(absolutePath);
         credentials.put(getServletConfig().getInitParameter("name"), getServletConfig().getInitParameter("password"));
         
         if(credentials.containsKey(accName) && credentials.get(accName).equals(accPass)){

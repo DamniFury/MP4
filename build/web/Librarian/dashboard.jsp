@@ -4,6 +4,8 @@
     Author     : puaas
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="Classes.FileIO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -195,12 +197,12 @@
         <ul>
             <li><i class="bi bi-person-circle"></i></li>
             <li><a href="#"><i class="bi bi-speedometer2"></i><p>Dashboard</p></a></li>
-            <li><a href="users.jsp"><i class="bi bi-people-fill"></i><p>Users</p></a></li>
+            <li><a href="${pageContext.request.contextPath}/Librarian/users.jsp"><i class="bi bi-people-fill"></i><p>Users</p></a></li>
             <li><a href="#"><i class="bi bi-box-seam-fill"></i><p>Storage</p></a></li>
             <li><a href="#"><i class="bi bi-gear-fill"></i><p>Settings</p></a></li>
         </ul>
         <ul>
-            <li><a href="../index.jsp"><i class="bi bi-box-arrow-left"></i><p>Log out</p></a></li>
+            <li><a href="${pageContext.request.contextPath}/InvalidateSession"><i class="bi bi-box-arrow-left"></i><p>Log out</p></a></li>
         </ul>
     </nav>
     <div class="dashboard" id="dashboard">
@@ -228,30 +230,36 @@
                     <th class="history_cell col5">Return Date</th>
                     <th class="history_cell col6">Status</th>
                 </tr>
-                <tr>
-                    <td class="history_cell col1 lighter">Silence the Fury</td>
-                    <td class="history_cell col2 lighter">Ila Shepard</td>
-                    <td class="history_cell col3 lighter">Leslie Day</td>
-                    <td class="history_cell col4 lighter">1/1/2024-1/8/2024</td>
-                    <td class="history_cell col5 lighter">1/9/2024</td>
-                    <td class="history_cell col6 lighter">Late</td>
-                </tr>
-                <tr>
-                    <td class="history_cell col1">Threat of Evil</td>
-                    <td class="history_cell col2">Sergio Whitehead</td>
-                    <td class="history_cell col3">Kendra Farmer</td>
-                    <td class="history_cell col4">1/1/2024-1/8/2024</td>
-                    <td class="history_cell col5">1/2/2024</td>
-                    <td class="history_cell col6">Returned</td>
-                </tr>
-                <tr>
-                    <td class="history_cell col1 lighter" >Unleash the Midnight Hour</td>
-                    <td class="history_cell col2 lighter" >Tristan Spencer</td>
-                    <td class="history_cell col3 lighter" >Cecile Berger</td>
-                    <td class="history_cell col4 lighter" >1/1/2024-    1/8/2024</td>
-                    <td class="history_cell col5 lighter" >N/A</td>
-                    <td class="history_cell col6 lighter">Ongoing</td>
-                </tr>
+                <%
+                FileIO io = new FileIO();
+                String relativePath = "../../data/records.txt";
+                String absolutePath = application.getRealPath(relativePath);
+                ArrayList<String> users = io.recordsReader(absolutePath);
+                
+                for(int i = 0; i < users.size(); i++){ 
+                    String[] record = users.get(i).split(",");
+                    if(i % 2 == 0){
+                %><tr>
+                    <td class="history_cell col1 lighter"><%=record[1]%></td>
+                    <td class="history_cell col2 lighter"><%=record[2]%></td>
+                    <td class="history_cell col3 lighter"><%=record[3]%></td>
+                    <td class="history_cell col4 lighter"><%=record[4]%></td>
+                    <td class="history_cell col5 lighter"><%=record[5]%></td>
+                    <td class="history_cell col6 lighter"><%=record[6]%></td>
+                </tr><%  }
+                    else{ %>
+                    <tr>
+                    <td class="history_cell col1"><%=record[1]%></td>
+                    <td class="history_cell col2"><%=record[2]%></td>
+                    <td class="history_cell col3"><%=record[3]%></td>
+                    <td class="history_cell col4"><%=record[4]%></td>
+                    <td class="history_cell col5"><%=record[5]%></td>
+                    <td class="history_cell col6"><%=record[6]%></td>
+                    </tr>
+                <%
+                    }
+                }
+                %>
             </table>
         </div>
     </div>

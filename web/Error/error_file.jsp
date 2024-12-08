@@ -1,6 +1,6 @@
 <%-- 
-    Document   : error_404
-    Created on : Dec 5, 2024, 10:34:09 PM
+    Document   : error_301
+    Created on : Dec 8, 2024, 5:26:46 PM
     Author     : puaas
 --%>
 
@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" />
-        <title>Error 404</title>
+        <title>File Error</title>
         <style>
             *, :before, ::after{
                 box-sizing: border-box;
@@ -53,9 +53,9 @@
     </head>
     <body>
         <div class="error_message">
-            <h1>Nothing Here!</h1>
-            <h2>404 - PAGE NOT FOUND</h2>
-            <p>The page you are looking for could not be found and might have been removed or is currently under maintenance.</p>
+            <h1>Uh Oh!</h1>
+            <h2>File Handling Exception</h2>
+            <p>Something must have gone wrong. The page you are looking for might have crashed due a file handling exception. Please Try Again Later.</p>
             <form action="../InvalidateSession" method="POST">
                 <input class="button" type="submit" value="Go Back" />
             </form>

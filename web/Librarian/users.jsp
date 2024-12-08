@@ -159,13 +159,13 @@
     <nav class="nav" id="navbar">
         <ul>
             <li><i class="bi bi-person-circle"></i></li>
-            <li><a href="dashboard.jsp"><i class="bi bi-speedometer2"></i><p>Dashboard</p></a></li>
+            <li><a href="${pageContext.request.contextPath}/Librarian/dashboard.jsp"><i class="bi bi-speedometer2"></i><p>Dashboard</p></a></li>
             <li><a href="#"><i class="bi bi-people-fill"></i><p>Users</p></a></li>
             <li><a href="#"><i class="bi bi-box-seam-fill"></i><p>Storage</p></a></li>
             <li><a href="#"><i class="bi bi-gear-fill"></i><p>Settings</p></a></li>
         </ul>
-        <ul>
-            <li><a href="../index.jsp"><i class="bi bi-box-arrow-left"></i><p>Log out</p></a></li>
+        <ul>    
+            <li><a href="${pageContext.request.contextPath}/InvalidateSession"><i class="bi bi-box-arrow-left"></i><p>Log out</p></a></li>
         </ul>
     </nav>
     <div class="dashboard" id="dashboard">
@@ -183,7 +183,7 @@
                 FileIO io = new FileIO();
                 String relativePath = "../../data/users.txt";
                 String absolutePath = application.getRealPath(relativePath);
-                HashMap<String, String> users = io.fileReader(absolutePath);
+                HashMap<String, String> users = io.usersReader(absolutePath);
                 for(Map.Entry<String, String> entry : users.entrySet()){ 
                 %>
                 <li class="reminder_row">
