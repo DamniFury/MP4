@@ -298,10 +298,8 @@
             <% } else if(bookNumber.equals("14")){%>In this romantic page-turner from the author of Everything, Everything and The Sun is Also a Star, Evie has the power to see other people's romantic fates--what will happen when she finally sees her own?
             <% } %></p>
             
-            <iframe name="hidden_iframe" style="display:none;"></iframe>
-            
             <a href="#popup">
-                <form action="../BookPreview" method="post" target="hidden_iframe">
+                <form action="../BookPreview" method="post">
                     <input type="hidden" name="bookNum" value=<%=bookNumber%> />
                     <input type="hidden" name="userName" value=<%=userName%> />
                 <input type="Submit" value="Book Now" class="book-now">

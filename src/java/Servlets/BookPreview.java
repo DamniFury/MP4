@@ -131,7 +131,7 @@ public class BookPreview extends HttpServlet {
         contents.add("N/A");
         contents.add("Ongoing");
         io.fileWriter(contents, absolutePath);
-        
+        response.sendRedirect("User/home.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
