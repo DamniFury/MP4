@@ -20,6 +20,10 @@
         <servlet-name>BookPreview</servlet-name>
         <servlet-class>Servlets.BookPreview</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InvalidateSession</servlet-name>
+        <servlet-class>Servlets.InvalidateSession</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>BookPreview</servlet-name>
         <url-pattern>/BookPreview</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InvalidateSession</servlet-name>
+        <url-pattern>/InvalidateSession</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

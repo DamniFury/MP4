@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,11 +32,18 @@ public class LogInServlet extends HttpServlet {
             throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
+        response.setHeader("Cache-Control", "no-store");
+        HttpSession session = request.getSession();
         String accName = request.getParameter("username").trim();
         String accPass = request.getParameter("password").trim();
         
+        String relativePath = "../../data/users.txt";
+        String absolutePath = getServletContext().getRealPath(relativePath);
+        
+        session.setAttribute("username", accName);
+        
         FileIO io = new FileIO();
-        HashMap<String, String> credentials = io.fileReader("C:\\Users\\puaas\\OneDrive\\Documents\\NetBeansProjects\\MP4\\data\\users.txt");
+        HashMap<String, String> credentials = io.fileReader(absolutePath);
         credentials.put(getServletConfig().getInitParameter("name"), getServletConfig().getInitParameter("password"));
         
         if(credentials.containsKey(accName) && credentials.get(accName).equals(accPass)){

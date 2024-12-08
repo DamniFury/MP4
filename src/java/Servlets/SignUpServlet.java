@@ -29,14 +29,17 @@ public class SignUpServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");        
+        response.setHeader("Cache-Control", "no-store");
         String username = request.getParameter("username").trim();
         String password = request.getParameter("password").trim();
+        String relativePath = "../../data/users.txt";
+        String absolutePath = getServletContext().getRealPath(relativePath);
         FileIO io = new FileIO();
         ArrayList<String> a = new ArrayList<>();
         a.add(username);
         a.add(password);
-        io.fileWriter(a, "C:\\Users\\puaas\\OneDrive\\Documents\\NetBeansProjects\\MP4\\data\\users.txt");
+        io.fileWriter(a, absolutePath);
         response.sendRedirect("Entry/login.jsp");
     }
 

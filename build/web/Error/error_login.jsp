@@ -56,7 +56,7 @@
             <h1>Hacker?</h1>
             <h2>Reason: ${err}</h2>
             <p>The login credentials you have provided is either invalid or incorrect. Please try again.</p>
-            <form action="Entry/login.jsp" method="POST">
+            <form action="/MP4/Entry/login.jsp" method="POST">
                 <input class="button" type="submit" value="Go Back"/>
             </form>
         </div>

@@ -194,13 +194,13 @@
     <nav class="nav" id="navbar">
         <ul>
             <li><i class="bi bi-person-circle"></i></li>
-            <li><a href=""><i class="bi bi-speedometer2"></i><p>Dashboard</p></a></li>
-            <li><a href=""><i class="bi bi-people-fill"></i><p>Users</p></a></li>
-            <li><a href=""><i class="bi bi-box-seam-fill"></i><p>Storage</p></a></li>
-            <li><a href=""><i class="bi bi-gear-fill"></i><p>Settings</p></a></li>
+            <li><a href="#"><i class="bi bi-speedometer2"></i><p>Dashboard</p></a></li>
+            <li><a href="users.jsp"><i class="bi bi-people-fill"></i><p>Users</p></a></li>
+            <li><a href="#"><i class="bi bi-box-seam-fill"></i><p>Storage</p></a></li>
+            <li><a href="#"><i class="bi bi-gear-fill"></i><p>Settings</p></a></li>
         </ul>
         <ul>
-            <li><a href=""><i class="bi bi-box-arrow-left"></i><p>Log out</p></a></li>
+            <li><a href="../index.jsp"><i class="bi bi-box-arrow-left"></i><p>Log out</p></a></li>
         </ul>
     </nav>
     <div class="dashboard" id="dashboard">
