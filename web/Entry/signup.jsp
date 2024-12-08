@@ -158,7 +158,7 @@
                     <input type="text" placeholder="Enter Username" name="username" required/>
                     <label for="password"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password" required/>
-                    <input type="submit" value="Log in">
+                    <input type="submit" value="Sign Up">
                 </form>
             </div>
             <footer>
