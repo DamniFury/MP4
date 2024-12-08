@@ -84,7 +84,7 @@
         .nav{
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            height: 90vh;
             width: 100px;
             justify-content: space-between;
             background-color: hsl(260, 50%, 28%);
